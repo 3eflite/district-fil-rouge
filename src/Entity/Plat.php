@@ -19,25 +19,23 @@ class Plat
     #[ORM\Column(length: 50)]
     private ?string $libelle = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
     private ?string $prix = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
     #[ORM\Column]
     private ?bool $active = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plat')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Categorie $id_categorie = null;
-
     #[ORM\ManyToOne(inversedBy: 'plats')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Categorie $categorie = null;
+
+
 
     #[ORM\OneToMany(mappedBy: 'plat', targetEntity: Detail::class)]
     private Collection $details;
@@ -108,18 +106,6 @@ class Plat
     public function setActive(bool $active): static
     {
         $this->active = $active;
-
-        return $this;
-    }
-
-    public function getIdCategorie(): ?Categorie
-    {
-        return $this->id_categorie;
-    }
-
-    public function setIdCategorie(?Categorie $id_categorie): static
-    {
-        $this->id_categorie = $id_categorie;
 
         return $this;
     }
