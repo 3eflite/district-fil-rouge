@@ -1,29 +1,6 @@
 {% extends 'base.html.twig' %}
 
-
-
 {% block body %}
-
-    <main class="container">
-        <section class="row mb-5">
-
-            <div class="col-12 mt-5 mb-5">
-                <h2>Restaurant spécialités du monde</h2>
-                <p>Des saveurs uniques de tous les continents</p>
-            </div>
-
-            <h3>Catégories</h3>
-
-            {% for categorie in liste %}
-                <div class="col-4">
-                    <div  class="card">
-
-                        <div class="card-body ">
-                            <h3 class="card-title">{{ categorie.libelle }}</h3>
-                            <a href="#" class="btn"><img class="img-fluid" src="{{ asset('assets/img/categorie/')  ~ categorie.image }}" alt="{{ categorie.libelle }}"></a>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-
+<h1>Site The District </h1>
+<p> Bienvenue dans notre boutique </p>
 {% endblock %}
