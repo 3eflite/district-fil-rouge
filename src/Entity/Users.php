@@ -31,22 +31,22 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $nom = null;
+    #[ORM\Column(length: 255, nullable: true)]
+        private ?string $nom = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $prenom = null;
+        #[ORM\Column(length: 255, nullable: true)]
+            private ?string $prenom = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $adresse = null;
+            #[ORM\Column(length: 255, nullable: true)]
+                private ?string $adresse = null;
 
-    #[ORM\Column(length: 20)]
+                #[ORM\Column(length: 255, nullable: true)]
     private ?string $cp = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $telephone = null;
 
     #[ORM\Column(type: 'boolean')]

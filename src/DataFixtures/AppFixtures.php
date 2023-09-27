@@ -94,7 +94,7 @@ class AppFixtures extends Fixture
                 $commande = new Commande();
                 $commande->setQuantite(2);
                 $commande->setTotal('raviolis aux truffes');
-                $$commande->setTotal(39.99);
+                $commande->setTotal(39.99);
                 $plat5->setActive(1);
                 $plat5->setCategorie($cat2);
                 $manager->persist($plat5);
@@ -102,6 +102,9 @@ class AppFixtures extends Fixture
 
 
         $user1= new Users();
+        $user1->setNom("Kaido");
+        $user1->setPrenom("will");
+        $user1->setAdresse("1-0");
         $user1->setEmail("diallo.seydi@dkr.sn");
         $user1->setPassword("1-0");
         $user1->setRoles(['ROLE_ADMIN']);
@@ -118,6 +121,7 @@ class AppFixtures extends Fixture
 
 
         $user3= new Users();
+        $user3->setEmail("bart@jsp.fr");
         $user3->setEmail("bart@jsp.fr");
         $user3->setPassword("0000");
         $user3->setRoles(['ROLE_CLIENT']);
