@@ -10,15 +10,22 @@ security:
                 class: App\Entity\Users
                 property: email
         # used to reload user from session & other features (e.g. switch_user)
-    firewalls:
+    firewalls: 
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
                 # where to redirect after logout
                 # target: app_any_route
             # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#the-firewall
-
+            # https://symfony.com/doc/current/security.html#the-firewal
+        main:
+            lazy: true
+            provider: app_user_provider
+            custom_authenticator: App\Security\UsersAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
 

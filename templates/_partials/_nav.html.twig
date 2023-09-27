@@ -27,13 +27,12 @@
           <a class="nav-link"  href="{{ path('app_register') }}">M'inscrire</a>
           </li>
           {% endif %}
+          {% if not app.user %}
           <li class="nav-item">
           <a class="nav-link"  href="{{ path('app_login') }}">Me connecter</a>
           </li>
-
-
-
+          {% endif %}
       </ul>
 </div> 
 </div> 
-</nav>
+</nav> 
