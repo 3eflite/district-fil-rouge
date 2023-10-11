@@ -1,20 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanierController!{% endblock %}
+{% block title %}Panier{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="container">
+        <h2>Panier</h2>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/eflite/Desktop/zkr/district-fil-rouge/src/Controller/PanierController.php'|file_link(0) }}">src/Controller/PanierController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/eflite/Desktop/zkr/district-fil-rouge/templates/panier/index.html.twig'|file_link(0) }}">templates/panier/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="listDishes">
+            {% if cart is not empty %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Libelle</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for dish in cart %}
+                        <tr>
+                            <td>{{ dish.id }}</td>
+                            <td>{{ dish.libelle }}</td>
+                            <td>{{ dish.description }}</td>
+                            <td>{{ dish.prix }}</td>
+                            <td><a href="{{ path('suppressionPanier', {'id' : dish.id}) }}">
+                                    <svg width="14" height="18" viewBox="0 0 14 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14 1H10.5L9.5 0H4.5L3.5 1H0V3H14M1 16C1 16.5304 1.21071 17.0391 1.58579 17.4142C1.96086 17.7893 2.46957 18 3 18H11C11.5304 18 12.0391 17.7893 12.4142 17.4142C12.7893 17.0391 13 16.5304 13 16V4H1V16Z"
+                                              fill="black"/>
+                                    </svg>
+                                </a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Votre panier est vide.</p>
+            {% endif %}
+        </div>
+    </div>
+
 {% endblock %}

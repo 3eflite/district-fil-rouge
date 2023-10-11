@@ -4,9 +4,9 @@ namespace App\Entity\Trait;
 
 use Doctrine\ORM\Mapping as ORM;
 
-trait Slugtrait
+trait SlugTrait
 {
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $slug;
 
     public function getSlug(): ?string
@@ -19,7 +19,7 @@ trait Slugtrait
         $this->slug = $slug;
 
         return $this;
-    
+
     }
 
 

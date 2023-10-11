@@ -10,7 +10,7 @@ security:
                 class: App\Entity\Users
                 property: email
         # used to reload user from session & other features (e.g. switch_user)
-    firewalls: 
+    firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -32,8 +32,9 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_CHEF }
+        - { path: ^/client, roles: ROLE_CLIENT}
 
 when@test:
     security:

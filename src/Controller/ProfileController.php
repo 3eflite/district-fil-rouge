@@ -18,7 +18,7 @@ class ProfileController extends AbstractController
         ]);
     }
     #[Route('/commande', name: 'app_commande')]
-    public function index(): Response
+    public function commande(): Response
     {
         return $this->render('commande/index.html.twig', [
             'controller_name' => 'CommandeController',

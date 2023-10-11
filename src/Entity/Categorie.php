@@ -6,12 +6,10 @@ use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Trait\SlugTrait;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
 {
-    use SlugTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -20,7 +18,7 @@ class Categorie
     #[ORM\Column(length: 50)]
     private ?string $libelle = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $image = null;
 
     #[ORM\Column]
